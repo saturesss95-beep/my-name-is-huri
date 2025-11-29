@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private Room</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100dvh; /* FIX MOBILE */
+      overflow-x: hidden;
+      overflow-y: auto; /* Prevent content from being cut on mobile */
+      font-family: 'Poppins', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-width: 100%;
+      min-height: 100%; /* Prevent cropping */
+      z-index: -2;
+    }
+
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.55);
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .gradient-big {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      color: white;
+      text-shadow:
+        0 0 10px rgba(255,0,0,0.8),
+        0 0 20px rgba(255,0,0,0.6),
+        0 0 35px rgba(255,0,0,0.4);
+      letter-spacing: 3px;
+      text-align: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      max-width: 600px;
+      max-height: 80vh; /* IMPORTANT FIX */
+      overflow-y: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      background: radial-gradient(circle, #ff1a1a 0%, #cc0000 70%);
+      color: #fff;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 20px rgba(255,26,26,0.9);
+      transition: 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255,26,26,1);
+    }
+
+    .gradient-text {
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 6px rgba(255,0,0,0.8);
+    }
+
+    .quiz-step.hidden {
+      display: none;
+    }
+
+    .footer-text {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* MOBILE SMALL FIX */
+    @media (max-width: 480px) {
+      .gradient-big {
+        font-size: 2.3rem !important;
+        letter-spacing: 1px;
+      }
+      .hero-content {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+  <!-- Background Video RANDOM -->
+  <video autoplay muted loop playsinline id="bg-video"></video>
+  <div class="hero-overlay"></div>
+
+  <!-- Main Section -->
+  <section class="absolute top-0 left-0 w-full min-h-full flex flex-col items-center justify-center text-center px-6">
+
+    <div class="mt-10 mb-14">
+      <h1 class="gradient-big mb-3">MY PRIVATE ROOM</h1>
+      <h2 class="gradient-big text-2xl md:text-3xl">I WILL MAKE YOU SATISFIED</h2>
+    </div>
+
+    <div class="hero-content">
+
+      <h1 class="text-lg md:text-xl mb-6 gradient-text">
+        Darling I'm naked, would you like to video call with me? or watch my video collection, it's all here
+      </h1>
+
+      <!-- STEP 1 -->
+      <div id="quiz-step-1" class="quiz-step">
+        <p class="mb-6 text-xl gradient-text">Are you ready to play with me?</p>
+        <div class="flex flex-col gap-4">
+          <button onclick="nextStep(2)" class="cta-btn w-full">Private Video Call</button>
+          <button onclick="nextStep(2)" class="cta-btn w-full"
+        style="background: radial-gradient(circle, #ff3333 0%, #cc0000 70%); color:#fff;">
+  Exclusive Hot Videos
+</button>
+
+          <button onclick="nextStep('album-section')" class="cta-btn w-full bg-red-800 border-red-500">My Album & Biodata</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="quiz-step-2" class="quiz-step hidden">
+        <p class="mb-4 gradient-text">How old are you?</p>
+        <button onclick="nextStep(3)" class="cta-btn w-full mb-4">18 - 25</button>
+        <button onclick="nextStep(3)" class="cta-btn w-full mb-4">26 - 35</button>
+        <button onclick="nextStep(3)" class="cta-btn w-full">36+</button>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="quiz-step-3" class="quiz-step hidden">
+        <p class="mb-4 gradient-text">Ready to see the hot women near you?</p>
+        <a href="https://www.liveroomcam.com/?utm_source=da57dc555e50572d&&ban=fb&s1=232783&s2=2110275&click_id=REMMAR-BIO" 
+           class="cta-btn w-full">Join for my Private Video & Video Call</a>
+      </div>
+
+      <!-- ALBUM SECTION -->
+      <div id="album-section" class="quiz-step hidden">
+        <h2 class="gradient-text text-xl mb-4">My Album, Video & Biodata</h2>
+        <div class="overflow-y-auto max-h-[400px] pr-2">
+
+          <!-- === PHOTO ALBUM === -->
+          (You must register on Exclusive Hot Videos or subscribe to enjoy this feature, register now and enjoy)
+          
+        </div>
+
+        <button onclick="nextStep(1)" class="cta-btn w-full mt-6">Back</button>
+      </div>
+
+      <p class="footer-text">This website was built in 2025 by Shinzy</p>
+    </div>
+  </section>
+
+  <script>
+    /* === RANDOM BACKGROUND VIDEO === */
+    const videos = [
+      "Video/cuak.mp4",
+      "Video/cuak1.mp4",
+      "Video/ide.mp4"
+    ];
+    document.getElementById("bg-video").src =
+      videos[Math.floor(Math.random() * videos.length)];
+
+    /* === QUIZ CONTROL === */
+    function nextStep(step) {
+      document.querySelectorAll('.quiz-step').forEach(el =>
+        el.classList.add('hidden')
+      );
+      document.getElementById("quiz-step-" + step)?.classList.remove("hidden");
+      document.getElementById(step)?.classList.remove("hidden");
+    }
+
+    function openLink(url) {
+      window.location.href = url;
+    }
+
+    /* === SECURITY (TIDAK DIUBAH) === */
+    document.addEventListener("contextmenu", e => {
+        e.preventDefault();
+        alert("MALENG MALENG HAYO MALENG!");
+    });
+
+    document.onkeydown = function(e) {
+        if (
+            e.ctrlKey && (e.key === "u" || e.key === "U") ||
+            e.keyCode === 123 ||
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C"))
+        ) {
+            e.preventDefault();
+            alert("MALENG MALENG HAYO MALENG! WKWKWKWK");
+            return false;
+        }
+    };
+  </script>
+
+</body>
+</html>
